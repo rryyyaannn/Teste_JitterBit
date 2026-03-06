@@ -3,10 +3,13 @@ const app = express()
 
 require("./db/banco")
 
-const orderRotas = require("./rotas/orderRotas")
+const pedidoRotas = require("./rotas/orderRotas")
+const authRotas = require("./rotas/authRotas")
 
 app.use(express.json())
-app.use("/",orderRotas)
+app.use("/",authRotas)
+app.use("/",pedidoRotas)
 app.listen(3000,()=>{
-console.log("api rodando na porta 3000")
+
+    console.log("API rodando na porta 3000")
 })

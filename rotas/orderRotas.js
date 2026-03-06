@@ -2,8 +2,9 @@ const express = require("express")
 const router = express.Router()
 
 const serv = require("../serv/orderServ")
+const {verificarToken} = require("../auth/auth")
 
-router.post("/order", async (req,res)=>{
+router.post("/order", verificarToken, async (req,res)=>{
 
     try{
 
@@ -15,14 +16,14 @@ router.post("/order", async (req,res)=>{
     }
 })
 
-router.get("/order/list", async (req,res)=>{
+router.get("/order/list", verificarToken, async (req,res)=>{
 
     const lista = await serv.listarPedidos()
     res.json(lista)
 
 })
 
-router.get("/order/:id", async (req,res)=>{
+router.get("/order/:id", verificarToken, async (req,res)=>{
 
     try{
 
@@ -37,14 +38,14 @@ router.get("/order/:id", async (req,res)=>{
     }
 })
 
-router.delete("/order/:id", async (req,res)=>{
+router.delete("/order/:id", verificarToken, async (req,res)=>{
 
     await serv.deletarPedido(req.params.id)
     res.json({msg:"pedido removido"})
 
 })
 
-router.put("/order/:id", async (req,res)=>{
+router.put("/order/:id", verificarToken, async (req,res)=>{
 
     await serv.atualizarPedido(req.params.id,req.body)
     res.json({msg:"pedido atualizado"})
