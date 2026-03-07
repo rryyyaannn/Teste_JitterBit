@@ -8,9 +8,9 @@ const {verificarToken} = require("../auth/auth")
  * @openapi
  * /order:
  *   post:
- *     summary: Create a new order
+ *     summary: Criar novo pedido
  *     tags:
- *       - Orders
+ *       - Pedidos
  *     security:
  *       - bearerAuth: []
  *     requestBody:
@@ -40,13 +40,13 @@ const {verificarToken} = require("../auth/auth")
  *                       type: number
  *     responses:
  *       201:
- *         description: Created
+ *         description: Criado
  *         content:
  *           application/json:
  *             schema:
- *               $ref: '#/components/schemas/Order'
+ *               $ref: '#/components/schemas/Pedido'
  *       500:
- *         description: Server error
+ *         description: Erro no servidor
  */
 router.post("/order", verificarToken, async (req,res)=>{
 
@@ -64,20 +64,20 @@ router.post("/order", verificarToken, async (req,res)=>{
  * @openapi
  * /order/list:
  *   get:
- *     summary: List all orders
+ *     summary: Listar pedidos
  *     tags:
- *       - Orders
+ *       - Pedidos
  *     security:
  *       - bearerAuth: []
  *     responses:
  *       200:
- *         description: List of orders
+ *         description: Lista de pedidos
  *         content:
  *           application/json:
  *             schema:
  *               type: array
  *               items:
- *                 $ref: '#/components/schemas/Order'
+ *                 $ref: '#/components/schemas/Pedido'
  */
 router.get("/order/list", verificarToken, async (req,res)=>{
 
@@ -90,9 +90,9 @@ router.get("/order/list", verificarToken, async (req,res)=>{
  * @openapi
  * /order/{id}:
  *   get:
- *     summary: Get order by id
+ *     summary: Obter pedido por id
  *     tags:
- *       - Orders
+ *       - Pedidos
  *     security:
  *       - bearerAuth: []
  *     parameters:
@@ -103,13 +103,13 @@ router.get("/order/list", verificarToken, async (req,res)=>{
  *           type: string
  *     responses:
  *       200:
- *         description: Order object
+ *         description: Objeto de pedido
  *         content:
  *           application/json:
  *             schema:
- *               $ref: '#/components/schemas/Order'
+ *               $ref: '#/components/schemas/Pedido'
  *       404:
- *         description: Not found
+ *         description: Não encontrado
  */
 router.get("/order/:id", verificarToken, async (req,res)=>{
 
@@ -130,9 +130,9 @@ router.get("/order/:id", verificarToken, async (req,res)=>{
  * @openapi
  * /order/{id}:
  *   delete:
- *     summary: Delete order by id
+ *     summary: Remover pedido por id
  *     tags:
- *       - Orders
+ *       - Pedidos
  *     security:
  *       - bearerAuth: []
  *     parameters:
@@ -143,7 +143,7 @@ router.get("/order/:id", verificarToken, async (req,res)=>{
  *           type: string
  *     responses:
  *       200:
- *         description: Removed
+ *         description: Removido
  */
 router.delete("/order/:id", verificarToken, async (req,res)=>{
 
@@ -156,9 +156,9 @@ router.delete("/order/:id", verificarToken, async (req,res)=>{
  * @openapi
  * /order/{id}:
  *   put:
- *     summary: Update order by id
+ *     summary: Atualizar pedido por id
  *     tags:
- *       - Orders
+ *       - Pedidos
  *     security:
  *       - bearerAuth: []
  *     parameters:
@@ -185,7 +185,7 @@ router.delete("/order/:id", verificarToken, async (req,res)=>{
  *                   $ref: '#/components/schemas/Item'
  *     responses:
  *       200:
- *         description: Updated
+ *         description: Atualizado
  */
 router.put("/order/:id", verificarToken, async (req,res)=>{
 

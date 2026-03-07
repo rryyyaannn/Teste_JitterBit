@@ -4,9 +4,9 @@ const options = {
     definition: {
         openapi: "3.0.0",
         info: {
-            title: "Order API",
+            title: "API de Pedidos",
             version: "1.0.0",
-            description: "API teste de pedidos"
+            description: "API de teste para gerenciamento de pedidos"
         },
         components: {
             securitySchemes: {
@@ -26,7 +26,7 @@ const options = {
                     },
                     required: ["idItem","quantidadeItem","valorItem"]
                 },
-                Order: {
+                Pedido: {
                     type: "object",
                     properties: {
                         orderId: { type: "string" },

@@ -6,9 +6,9 @@ const {gerarToken} = require("../auth/auth")
  * @openapi
  * /login:
  *   post:
- *     summary: Login and receive a JWT token
+ *     summary: Fazer login e receber token JWT
  *     tags:
- *       - Auth
+ *       - Autenticação
  *     requestBody:
  *       required: true
  *       content:
@@ -22,7 +22,7 @@ const {gerarToken} = require("../auth/auth")
  *                 type: string
  *     responses:
  *       200:
- *         description: Returns token
+ *         description: Retorna token
  *         content:
  *           application/json:
  *             schema:
@@ -31,7 +31,7 @@ const {gerarToken} = require("../auth/auth")
  *                 token:
  *                   type: string
  *       401:
- *         description: Invalid credentials
+ *         description: Credenciais inválidas
  */
 router.post("/login",(req,res)=>{
 
